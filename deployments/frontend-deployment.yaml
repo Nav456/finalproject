@@ -15,9 +15,9 @@ spec:
     spec:
       containers:
       - name: frontend-app
-        image: gcr.io/iac1-424123/pixelui:v3
+        image: gcr.io/iac1-424123/frontend:latest
+
         ports:
         - containerPort: 80
       imagePullSecrets:
       - name: regcred
-

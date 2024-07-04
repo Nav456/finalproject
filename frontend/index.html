@@ -4,120 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Student Information</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f5f5f5;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-        }
-
-        .container {
-            background-color: #fff;
-            border-radius: 10px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            padding: 20px;
-            width: 300px;
-        }
-
-        h1 {
-            text-align: center;
-            margin-bottom: 20px;
-            color: #333;
-            transition: color 0.3s ease;
-        }
-
-        h1:hover {
-            color: #007bff;
-        }
-
-        label {
-            font-weight: bold;
-            display: block;
-            margin-bottom: 5px;
-            color: #333;
-            transition: color 0.3s ease;
-        }
-
-        label:hover {
-            color: #007bff;
-        }
-
-        input[type="text"] {
-            width: calc(100% - 12px);
-            padding: 10px;
-            margin-bottom: 10px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            font-size: 16px;
-            transition: border-color 0.3s ease;
-        }
-
-        input[type="text"]:focus {
-            border-color: #007bff;
-        }
-
-        button {
-            width: 100%;
-            padding: 10px;
-            background-color: #007bff;
-            color: #fff;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 16px;
-            transition: background-color 0.3s ease;
-        }
-
-        button:hover {
-            background-color: #0056b3;
-        }
-
-        button:focus {
-            outline: none;
-        }
-
-        /* Animation for breaking elements */
-        .container:hover input[type="text"] {
-            animation: breakAnimation 0.5s linear forwards;
-        }
-
-        @keyframes breakAnimation {
-            0% {
-                transform: translateX(0);
-            }
-            25% {
-                transform: translateX(5px);
-            }
-            50% {
-                transform: translateX(-5px);
-            }
-            75% {
-                transform: translateX(5px);
-            }
-            100% {
-                transform: translateX(0);
-            }
-        }
-    </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Enter Student Information</h1>
-        <form id="studentForm">
-            <label for="name">Name:</label>
-            <input type="text" id="name" name="name" required>
-            <label for="id">ID:</label>
-            <input type="text" id="id" name="id" required>
-            <label for="course">Course:</label>
-            <input type="text" id="course" name="course" required>
-            <button type="button" onclick="submitForm()">Submit</button>
-        </form>
-    </div>
+    <h1>Enter Student Information</h1>
+    <form id="studentForm">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+        <br><br>
+        <label for="id">ID:</label>
+        <input type="text" id="id" name="id" required>
+        <br><br>
+        <label for="course">Course:</label>
+        <input type="text" id="course" name="course" required>
+        <br><br>
+        <button type="button" onclick="submitForm()">Submit</button>
+    </form>
 
     <script>
         async function submitForm() {
@@ -132,7 +33,7 @@
             };
 
             try {
-                const response = await fetch('http://backend-service.backend:80/submit', {
+                const response = await fetch('http://34.42.139.53/submit', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
