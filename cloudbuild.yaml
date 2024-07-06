@@ -18,3 +18,6 @@ steps:
   - name: 'gcr.io/cloud-builders/kubectl'
     args: ['set', 'image', 'deployment/python-app', 'python-app=gcr.io/iac1-424123/python-app:$SHORT_SHA', '--namespace=default']
     env: ['CLOUDSDK_COMPUTE_ZONE=us-central1-a', 'CLOUDSDK_CONTAINER_CLUSTER=iac1']
+
+options:
+  logsBucket: activity01
