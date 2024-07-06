@@ -19,4 +19,5 @@ steps:
     args: ['set', 'image', 'deployment/python-app', 'python-app=gcr.io/$PROJECT_ID/python-app:$SHORT_SHA', '--namespace=backend']
     env: ['CLOUDSDK_COMPUTE_ZONE=us-central1-a', 'CLOUDSDK_CONTAINER_CLUSTER=iac1']
 
-
+options:
+  logging: CLOUD_LOGGING_ONLY
