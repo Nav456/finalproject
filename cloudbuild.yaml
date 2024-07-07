@@ -29,6 +29,5 @@ steps:
 
 options:
   logging: CLOUD_LOGGING_ONLY
-  env:
-    - 'GOOGLE_APPLICATION_CREDENTIALS= c:\Users\Ranbir\Downloads\iac1-424123-f282efd5651f.json
+  
   
