@@ -5,7 +5,7 @@ metadata:
   namespace: backend
 spec:
   selector:
-    app: backend-app   # Corrected selector label
+    app: python-app   # Corrected selector label
   ports:
     - protocol: TCP
       port: 80

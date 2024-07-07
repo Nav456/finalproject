@@ -1,21 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: frontend-app
+  name: frontend-ui
   namespace: frontend
 spec:
   selector:
     matchLabels:
-      app: frontend-app
+      app: frontend-ui
   replicas: 1
   template:
     metadata:
       labels:
-        app: frontend-app
+        app: frontend-ui
     spec:
       containers:
-      - name: frontend-app
-        image: gcr.io/iac1-424123/frontend:latest
+      - name: frontend-ui
+        image: gcr.io/$PROJECT_ID/frontend-ui:$SHORT_SHA
 
         ports:
         - containerPort: 80

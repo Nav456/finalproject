@@ -1,21 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: backend-app
+  name: python-app
   namespace: backend
 spec:
   selector:
     matchLabels:
-      app: backend-app
+      app: python-app
   replicas: 1
   template:
     metadata:
       labels:
-        app: backend-app
+        app: python-app
     spec:
       containers:
-      - name: backend-app
-        image: gcr.io/iac1-424123/pixelapp:v3
+      - name: python-app
+        image: gcr.io/$PROJECT_ID/python-app:$SHORT_SHA
         ports:
         - containerPort: 5000
       imagePullSecrets:
