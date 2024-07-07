@@ -15,13 +15,13 @@ steps:
   
   # Deploy to GKE
   - name: 'gcr.io/cloud-builders/kubectl'
-    args: ['set', 'image', 'deployments/frontend-ui', 'frontend-ui=gcr.io/$PROJECT_ID/frontend-ui:$SHORT_SHA', '--namespace=frontend']
+    args: ['set', 'image', 'deployment/frontend-ui', 'frontend-ui=gcr.io/$PROJECT_ID/frontend-ui:$SHORT_SHA', '--namespace=frontend']
     env:
       - 'CLOUDSDK_COMPUTE_ZONE=us-central1-a'
       - 'CLOUDSDK_CONTAINER_CLUSTER=iac1'
   
   - name: 'gcr.io/cloud-builders/kubectl'
-    args: ['set', 'image', 'deployments/python-app', 'python-app=gcr.io/$PROJECT_ID/python-app:$SHORT_SHA', '--namespace=backend']
+    args: ['set', 'image', 'deployment/python-app', 'python-app=gcr.io/$PROJECT_ID/python-app:$SHORT_SHA', '--namespace=backend']
     env:
       - 'CLOUDSDK_COMPUTE_ZONE=us-central1-a'
       - 'CLOUDSDK_CONTAINER_CLUSTER=iac1'
