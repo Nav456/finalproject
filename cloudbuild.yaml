@@ -14,31 +14,18 @@ steps:
     args: ['push', 'gcr.io/$PROJECT_ID/python-app:$SHORT_SHA']
   
   # Deploy to GKE
- # - name: 'gcr.io/cloud-builders/kubectl'
-  #  args: ['set', 'image', 'deployment/frontend-ui', 'frontend-ui=gcr.io/$PROJECT_ID/frontend-ui:$SHORT_SHA', '--namespace=frontend']
-   # env:
-    #  - 'CLOUDSDK_COMPUTE_ZONE=us-central1-a'
-     # - 'CLOUDSDK_CONTAINER_CLUSTER=iac1'
+  - name: 'gcr.io/cloud-builders/kubectl'
+    args: ['set', 'image', 'deployment/frontend-ui', 'frontend-ui=gcr.io/$PROJECT_ID/frontend-ui:$SHORT_SHA', '--namespace=frontend']
+    env:
+      - 'CLOUDSDK_COMPUTE_ZONE=us-central1-a'
+      - 'CLOUDSDK_CONTAINER_CLUSTER=iac1'
   
-  #- name: 'gcr.io/cloud-builders/kubectl'
-   # args: ['set', 'image', 'deployment/python-app', 'python-app=gcr.io/$PROJECT_ID/python-app:$SHORT_SHA', '--namespace=backend']
-    #env:
-     # - 'CLOUDSDK_COMPUTE_ZONE=us-central1-a'
-      #- 'CLOUDSDK_CONTAINER_CLUSTER=iac1'
-- name: 'gcr.io/cloud-builders/kubectl'
-  args: ['apply', '-f', '/frontend-ui.yaml']
-  env:
-    - 'CLOUDSDK_COMPUTE_ZONE=us-central1-a'
-    - 'CLOUDSDK_CONTAINER_CLUSTER=iac1'
+  - name: 'gcr.io/cloud-builders/kubectl'
+    args: ['set', 'image', 'deployment/python-app', 'python-app=gcr.io/$PROJECT_ID/python-app:$SHORT_SHA', '--namespace=backend']
+    env:
+      - 'CLOUDSDK_COMPUTE_ZONE=us-central1-a'
+      - 'CLOUDSDK_CONTAINER_CLUSTER=iac1'
 
-- name: 'gcr.io/cloud-builders/kubectl'
-  args: ['apply', '-f', '/python-app.yaml']
-  env:
-    - 'CLOUDSDK_COMPUTE_ZONE=us-central1-a'
-    - 'CLOUDSDK_CONTAINER_CLUSTER=iac1'
-
-options:
-  logging: CLOUD_LOGGING_ONLY
 
 options:
   logging: CLOUD_LOGGING_ONLY
