@@ -56,6 +56,9 @@ def create_table():
             conn.close()
 
 # Handle form submission and insert student information into the database
+@app.route('/')
+def dashboard():
+    return 0 
 @app.route('/submit', methods=['POST'])
 def submit():
     data = request.json
