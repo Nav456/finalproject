@@ -56,9 +56,9 @@ def create_table():
             conn.close()
 
 # Handle form submission and insert student information into the database
-@app.route('/')
-def index():
-    return send_from_directory('../frontend', 'index.html')
+#@app.route('/')
+#def index():
+ #   return send_from_directory('../frontend', 'index.html')
 @app.route('/submit', methods=['POST'])
 def submit():
     data = request.json
