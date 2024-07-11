@@ -33,7 +33,7 @@
             };
 
             try {
-                const response = await fetch('http://frontend-service.frontend.svc.cluster.local/submit', {
+                const response = await fetch('http://backend-service.backend.svc.cluster.local/submit', {
                     // Replace 'frontend-service' with your actual service name in Kubernetes
                     method: 'POST',
                     headers: {
