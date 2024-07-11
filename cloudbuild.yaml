@@ -49,26 +49,26 @@ steps:
     args: ['apply', '-f', './deployments/frontend-ui.yaml']
     env:
       - 'CLOUDSDK_COMPUTE_ZONE=us-central1-a'
-      - 'CLOUDSDK_CONTAINER_CLUSTER=iac1'
+      - 'CLOUDSDK_CONTAINER_CLUSTER=iac2'
 
   - name: 'gcr.io/cloud-builders/kubectl'
     args: ['apply', '-f', './deployments/python-app.yaml']
     env:
       - 'CLOUDSDK_COMPUTE_ZONE=us-central1-a'
-      - 'CLOUDSDK_CONTAINER_CLUSTER=iac1'
+      - 'CLOUDSDK_CONTAINER_CLUSTER=iac2'
   
   # Update the deployments with the new images
   - name: 'gcr.io/cloud-builders/kubectl'
     args: ['set', 'image', 'deployment/frontend-ui', 'frontend-ui=gcr.io/$PROJECT_ID/frontend-ui:$SHORT_SHA', '--namespace=frontend']
     env:
       - 'CLOUDSDK_COMPUTE_ZONE=us-central1-a'
-      - 'CLOUDSDK_CONTAINER_CLUSTER=iac1'
+      - 'CLOUDSDK_CONTAINER_CLUSTER=iac2'
   
   - name: 'gcr.io/cloud-builders/kubectl'
     args: ['set', 'image', 'deployment/python-app', 'python-app=gcr.io/$PROJECT_ID/python-app:$SHORT_SHA', '--namespace=backend']
     env:
       - 'CLOUDSDK_COMPUTE_ZONE=us-central1-a'
-      - 'CLOUDSDK_CONTAINER_CLUSTER=iac1'
+      - 'CLOUDSDK_CONTAINER_CLUSTER=iac2'
 
 options:
   logging: CLOUD_LOGGING_ONLY
