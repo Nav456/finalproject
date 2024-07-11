@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, send_from_directory
 import os
 import psycopg2
 import logging
@@ -57,8 +57,8 @@ def create_table():
 
 # Handle form submission and insert student information into the database
 @app.route('/')
-def dashboard():
-    return 0 
+def index():
+    return send_from_directory('../frontend', 'index.html')
 @app.route('/submit', methods=['POST'])
 def submit():
     data = request.json
