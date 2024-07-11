@@ -3,7 +3,7 @@ FROM nginx:alpine
 
 # Remove default nginx website
 RUN rm -rf /usr/share/nginx/html/*
-
+COPY nginx.conf /etc/nginx/nginx.conf
 # Copy the content from local host to the image
 COPY index.html /usr/share/nginx/html
 
