@@ -6,7 +6,7 @@
     <title>Student Information</title>
 </head>
 <body>
-    <h1>Enter Student Information </h1>
+    <h1>Enter Student Information</h1>
     <form id="studentForm">
         <label for="name">Name:</label>
         <input type="text" id="name" name="name" required>
@@ -33,7 +33,7 @@
             };
 
             try {
-                const response = await fetch('http://35.193.248.204//submit', {
+                const response = await fetch('/submit', { // Updated to internal Kubernetes service endpoint
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'

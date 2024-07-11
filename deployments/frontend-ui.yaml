@@ -1,28 +1,31 @@
----
 apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: frontend-ui
   namespace: frontend
 spec:
+  replicas: 1
   selector:
     matchLabels:
       app: frontend-ui
-  replicas: 1
   template:
     metadata:
       labels:
         app: frontend-ui
     spec:
       containers:
-      - name: frontend-ui
-        image: gcr.io/$PROJECT_ID/frontend-ui:$SHORT_SHA
-        ports:
-        - containerPort: 80
+        - name: frontend-ui
+          image: gcr.io/$PROJECT_ID/frontend-ui:$SHORT_SHA
+          ports:
+            - containerPort: 80
+          env:
+            - name: BACKEND_URL
+              value: "http://backend-service.backend.svc.cluster.local"
       imagePullSecrets:
-      - name: regcred
+        - name: regcred
 
 ---
+
 apiVersion: v1
 kind: Service
 metadata:
