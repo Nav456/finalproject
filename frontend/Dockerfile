@@ -1,2 +1,3 @@
 FROM nginx:latest
-COPY nginx.conf /etc/nginx/nginx.conf
+COPY templates/nginx.conf /etc/nginx/nginx.conf
+COPY templates /usr/share/nginx/html
