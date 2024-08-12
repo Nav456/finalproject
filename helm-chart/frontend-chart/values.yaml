@@ -1,0 +1,19 @@
+replicaCount: 1
+
+image:
+  repository: gcr.io/annular-climate-432214-g4/test
+  tag: latest
+  pullPolicy: IfNotPresent
+
+service:
+  name: frontend-service
+  type: LoadBalancer
+  port: 80
+
+imagePullSecrets:
+  - name: regcred
+
+resources: {}
+
+namespace: frontend
+

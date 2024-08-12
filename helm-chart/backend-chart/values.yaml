@@ -1,0 +1,19 @@
+replicaCount: 1
+
+image:
+  repository: gcr.io/annular-climate-432214-g4/backendapp
+  tag: latest
+  pullPolicy: IfNotPresent
+
+service:
+  name: backend-service
+  type: LoadBalancer
+  port: 80
+  targetPort: 5000
+
+imagePullSecrets:
+  - name: regcred
+
+resources: {}
+
+namespace: backend

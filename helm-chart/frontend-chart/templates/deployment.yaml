@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "frontend-chart.fullname" . }}
+  namespace: {{ .Values.namespace | default "frontend" }}
+  labels:
+    {{- include "frontend-chart.labels" . | nindent 4 }}
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app: {{ include "frontend-chart.name" . }}
+  template:
+    metadata:
+      labels:
+        app: {{ include "frontend-chart.name" . }}
+    spec:
+      containers:
+        - name: {{ include "frontend-chart.name" . }}
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          ports:
+            - containerPort: 80
+      imagePullSecrets:
+        - name: {{ .Values.imagePullSecrets.name }}
+
