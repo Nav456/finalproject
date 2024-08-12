@@ -10,10 +10,4 @@ service:
   type: LoadBalancer
   port: 80
 
-imagePullSecrets:
-  - name: regcred
-
-resources: {}
-
 namespace: frontend
-
