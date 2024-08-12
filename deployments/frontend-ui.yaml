@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: frontend-ui
-        image: gcr.io/$PROJECT_ID/frontend-ui:$SHORT_SHA
+        image: gcr.io/annular-climate-432214-g4/test:latest
         ports:
         - containerPort: 80
       imagePullSecrets:

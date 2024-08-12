@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: python-app
-        image: gcr.io/$PROJECT_ID/python-app:$SHORT_SHA
+        image: gcr.io/annular-climate-432214-g4/backendapp:latest
         ports:
         - containerPort: 5000
       imagePullSecrets:
