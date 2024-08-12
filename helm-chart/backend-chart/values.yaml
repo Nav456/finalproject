@@ -12,3 +12,4 @@ service:
   targetPort: 5000
 
 namespace: backend
+appVersion: "1.0"
