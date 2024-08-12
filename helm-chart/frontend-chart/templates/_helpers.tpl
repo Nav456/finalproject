@@ -19,6 +19,6 @@ Common labels.
 helm.sh/chart: {{ include "frontend-chart.name" . }}-{{ .Chart.Version }}
 app.kubernetes.io/name: {{ include "frontend-chart.name" . }}
 app.kubernetes.io/instance: {{ .Release.Name }}
-app.kubernetes.io/version: {{ .Chart.AppVersion }}
+app.kubernetes.io/version: "{{ .Chart.AppVersion }}"
 app.kubernetes.io/managed-by: {{ .Release.Service }}
 {{- end -}}
